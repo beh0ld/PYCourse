@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 5.1a
@@ -36,7 +37,6 @@ Mask:
 network = '172.16.31.200/25'
 network = network.split('/')
 ip = str(network[0])
-print(ip)
 ip = ip.split('.')
 
 a = int(ip[0])
@@ -45,7 +45,6 @@ c = int(ip[2])
 d = int(ip[3])
 p = int(network[1])
 addr_bits = list(('1'*int(p)).zfill(32))
-print(addr_bits)
 addr_bits.reverse()
 
 a1 = int("".join(addr_bits[0:8]))

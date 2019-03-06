@@ -1,17 +1,18 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Задание 5.2b
+Задание 5.2a
 
-Переделать скрипт из задания 5.2a таким образом, чтобы, при запросе параметра,
-отображался список возможных параметров.
+Переделать скрипт из задания 5.2 таким образом, чтобы,
+кроме имени устройства, запрашивался также параметр устройства, который нужно отобразить.
 
 Вывести информацию о соответствующем параметре, указанного устройства.
 
 Пример выполнения скрипта:
-$ python task_5_2b.py
+$ python task_5_2a.py
 Enter device name: r1
-Enter parameter name (ios, model, vendor, location, ip): ip
-10.255.0.1
+Enter parameter name: ios
+15.4
 
 Ограничение: нельзя изменять словарь london_co.
 
@@ -44,3 +45,9 @@ london_co = {
         'routing': True
     }
 }
+unit = input('Enter device name:')
+parameter = input('Enter parameter name:')
+unit = london_co[unit][parameter]
+print('\n' + '-' * 80)
+print(unit)
+print('\n' + '-' * 80)

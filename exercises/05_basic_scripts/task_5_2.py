@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 5.2
@@ -46,4 +47,9 @@ london_co = {
         'vlans': '10,20,30',
         'routing': True
     }
-}
+    }
+unit = input('Enter device name:')
+unit = london_co[unit]
+print('\n' + '-' * 80)
+print(unit)
+print('\n' + '-' * 80)

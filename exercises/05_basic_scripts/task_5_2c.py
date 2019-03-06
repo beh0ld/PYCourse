@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 5.2c
@@ -48,3 +49,9 @@ london_co = {
         'routing': True
     }
 }
+unit = input('Enter device name:')
+parameter = input('Enter parameter name:')
+unit = london_co[unit].get(parameter,'Такого параметра нет')
+print('\n' + '-' * 80)
+print(unit)
+print('\n' + '-' * 80)

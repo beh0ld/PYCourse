@@ -13,7 +13,7 @@
 from sys import argv
 network = str(argv[1:])
 network = network.strip('[]')
-network = network.strip("")
+network = network.strip("'")
 print(network)
 network = network.split('/')
 ip = str(network[0])

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 5.3
@@ -58,16 +59,16 @@ trunk_template = [
     'switchport trunk encapsulation dot1q', 'switchport mode trunk',
     'switchport trunk allowed vlan {}'
 ]
-#switchport_mode = input('Enter interface mode (access/trunk):')
-#interface = input('Enter interface type and number:')
-#vlans = input('Enter vlan(s):')
-
-switchport_mode = 'trunk'
-interface = 'Fa0/6'
-vlans = '2,3,4,5'
+switchport_mode = input('Enter interface mode (access/trunk):')
+interface = input('Enter interface type and number:')
+vlans = input('Enter vlan(s):')
 interface = 'interface' + ' ' + interface
-trunk_template = ','.join(trunk_template)
-trunk_template = trunk_template.replace(',','\n')
-access_template = ','.join(access_template)
-access_template = access_template.replace(',','\n')
-
+dict_acess = dict(enumerate(access_template))
+dict_trunk = dict(enumerate(trunk_template))
+dict = {'trunk':dict_trunk,'access': dict_acess}
+dict = dict.get(switchport_mode)
+list_values = list(dict.values())
+template = ','.join(list_values)
+template = template.replace(',','\n')
+print(interface)
+print(template.format(vlans))

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 6.1
@@ -19,3 +20,14 @@ D: 224-239
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+ip = input("Enter ip address:")
+if int(ip.split('.')[0]) <= 223 and int(ip.split('.')[0]) > 0:
+    print('unicast')
+elif int(ip.split('.')[0]) > 223 and int(ip.split('.')[0]) <= 239:
+    print('multicast')
+elif ip in '255.255.255.255':
+    print('local broadcast')
+elif ip in '0.0.0.0':
+ print('unassigned')
+else:
+    print('unused')

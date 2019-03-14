@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 7.2b
@@ -14,3 +15,15 @@
 '''
 
 ignore = ['duplex', 'alias', 'Current configuration']
+from sys import argv
+
+config_cleared = []
+
+with open(argv[1], 'r') as f:
+    for line in f:
+        ignore_line = True in [word in line for word in ignore]
+        if not ignore_line:
+            config_cleared.append(line)
+
+with open('config_sw1_cleared.txt', 'w') as f:
+    f.writelines(config_cleared)

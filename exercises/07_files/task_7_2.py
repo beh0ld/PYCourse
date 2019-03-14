@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
 Задание 7.2
@@ -12,3 +13,11 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+from sys import argv
+name = argv[1:]
+with open(str(name).strip("[]'"), 'r') as f:
+    for line in f:
+        if '!' in line:
+            pass
+        else:
+            print(line.strip())

@@ -31,10 +31,8 @@ Mask:
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
-#network = input('Enter network(n.n.n.n/n):')
-#network = input()
-#print(network)
-network = '172.16.31.200/25'
+network = input('Enter network(n.n.n.n/n):')
+network = input()
 network = network.split('/')
 ip = str(network[0])
 ip = ip.split('.')

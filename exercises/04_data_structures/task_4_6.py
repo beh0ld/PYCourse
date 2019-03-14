@@ -15,22 +15,29 @@ Outbound Interface:    FastEthernet0/0
 '''
 
 ospf_route = 'O        10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0'
-ospf_route = ospf_route.replace('[','')
-ospf_route = ospf_route.replace(']','')
-ospf_route = ospf_route.replace(',','')
-ospf_route = ospf_route.replace('O','OSPF')
-route = [' Protocol', 'Prefix', 'AD/Metric', 'Next-Hop', 'Last update', 'Outbound Interface']
-ospf = ospf_route.split()
-ospf.remove('via')
-dict_finish = dict(zip(route,ospf))
-finish = str(dict_finish)
-finish = finish.replace(',','\n')
-finish = finish.replace("'",'')
-finish = finish.replace("l:",'l:              ')
-finish = finish.replace("x:",'x:                ')
-finish = finish.replace("c:",'c:             ')
-finish = finish.replace("p:",'p:              ')
-finish = finish.replace("te:",'te:           ')
-finish = finish.replace("ce:",'ce:        ')
-finish = finish.strip('{}')
-print(finish)
+print(ospf_route)
+list_string_ospf = ospf_route.split()
+
+output_string_template = '''
+{0:<24}{6:<24}
+{1:<24}{7:<24}
+{2:<24}{8:<24}
+{3:<24}{9:<24}
+{4:<24}{10:<24}
+{5:<24}{11:<24}
+'''
+
+print(output_string_template.format('Protocol:',
+                                    'Prefix:', 
+                                    'AD/Metric:', 
+                                    'Next-Hop:', 
+                                    'Last update:', 
+                                    'Outbound Interface:', 
+                                    list_string_ospf[0], 
+                                    list_string_ospf[1], 
+                                    list_string_ospf[2].strip('[]'), 
+                                    list_string_ospf[4].strip(','), 
+                                    list_string_ospf[5].strip(','), 
+                                    list_string_ospf[6]
+                                    )
+)

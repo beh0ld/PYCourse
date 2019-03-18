@@ -33,8 +33,21 @@ def generate_trunk_config(trunk):
     ]
 
 
+    result = {key: [] for key in list(trunk_dict.keys())}
+    
+    for port, number in trunk.items():
+        for string in trunk_template:
+            if string.endswith('allowed vlan'):
+                result[port].append(string + ' ' + ','.join(str(vlan) for vlan in number))
+            else:
+                result[port].append(string)
+    return(result)
+
 trunk_dict = {
     'FastEthernet0/1': [10, 20, 30],
     'FastEthernet0/2': [11, 30],
     'FastEthernet0/4': [17]
 }
+
+temp = generate_trunk_config(trunk_dict)
+print(temp)

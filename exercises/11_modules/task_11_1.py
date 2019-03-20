@@ -27,3 +27,9 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+from functions import read_file_to_string, parse_cdp_neighbors
+
+
+if __name__ == '__main__':
+    output_string = read_file_to_string('sh_cdp_n_sw1.txt')
+    print(parse_cdp_neighbors(output_string))

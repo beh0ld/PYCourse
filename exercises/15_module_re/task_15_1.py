@@ -10,7 +10,7 @@
 выведены те строки из файла с выводом команды show,
 в которых было найдено совпадение с регулярным выражением.
 
-Проверить работу скрипта на примере вывода команды sh ip int br (файл sh_ip_int_br.txt).
+Проверить работу скрипта на примере вывода команды sh ip int br (файл).
 Например, попробуйте вывести информацию только по интерфейсу FastEthernet0/1.
 
 Работа этого скрипта должна имитировать работу фильтра include в Cisco.
@@ -38,3 +38,12 @@ Loopback100                100.0.0.1       YES manual up                    up
 
 
 '''
+import re
+from sys import argv
+
+file, regexp = argv[1:]
+with open(file, 'r') as f:
+    for line in f:
+        match = re.search(regexp, line)
+        if match:
+            print(line.strip())

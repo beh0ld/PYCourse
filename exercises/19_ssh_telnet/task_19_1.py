@@ -19,3 +19,23 @@
 '''
 
 command = 'sh ip int br'
+import netmiko
+import yaml
+from pprint import pprint
+
+
+def send_show_command(device_params, command):
+    result = {}
+    with netmiko.ConnectHandler(**device_params) as ssh:
+        result[device_params['ip']] = ssh.send_command(command)
+
+    return result
+
+if __name__ == '__main__':
+    command = 'sh ip int br'
+
+    with open('devices.yaml', 'r') as f:
+            devices = yaml.load(f.read())
+
+    for device in devices['routers']:
+        pprint(send_show_command(device, command))
